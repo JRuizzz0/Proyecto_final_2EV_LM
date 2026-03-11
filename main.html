@@ -17,11 +17,11 @@
             <nav class="nav">
                <input id="CampoBusqueda" type="text" placeholder="Campo de busqueda">
                <button id="btnBusqueda">Buscar</button>
-               <select class="tema">
-                <option value="" id="claro">Claro</option>
-                <option  value="" id="oscuro">Oscuro</option>
-                <option value="" id="custom">Personalizado</option>
-               </select>
+              <select id="selectorTema" class="tema">
+                    <option value="claro">Claro</option>
+                    <option value="oscuro">Oscuro</option>
+                    <option value="custom">Personalizado</option>
+              </select>
                <button id="addTarjeta">Añadir tarjeta</button>
             </nav>
         </header>
@@ -43,5 +43,22 @@
             </div>
         </footer>
     </div>
+    <div id="modalTema" class="modal">
+    <div class="modal-content">
+        <h2>Tema Personalizado</h2>
+        
+        <label>Color del Header:</label>
+        <input type="color" id="colorHeader">
+        
+        <label>Color del Main:</label>
+        <input type="color" id="colorMain">
+        
+        <label>Color del Footer:</label>
+        <input type="color" id="colorFooter">
+        
+        <button id="btnGuardarTema">Aplicar colores</button>
+        <button id="btnCerrarTema">Cancelar</button>
+    </div>
+</div>
 </body>
 </html>
