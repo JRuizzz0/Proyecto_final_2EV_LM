@@ -2,13 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-   
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <div class="directorio-container">
+       
+        <header class="header">
+            <h1>Directorio de animes</h1>
+            <nav class="nav">
+               <input id="CampoBusqueda" type="text" placeholder="Campo de busqueda">
+               <button id="btnBusqueda">Buscar</button>
+               <select class="tema">
+                <option value="" id="claro">Claro</option>
+                <option  value="" id="oscuro">Oscuro</option>
+                <option value="" id="custom">Personalizado</option>
+               </select>
+               <button id="addTarjeta">Añadir tarjeta</button>
+            </nav>
+        </header>
+
+        <main>
+
+             <div id="tarjetas"></div>
+            
+
+        </main>
     
+        
+        <footer class="footer">
+            <p>&copy; 2026 AnimeDirect-Jaime Ruiz. Todos los derechos reservados.</p>
+            <div class="social">
+               <p>Pagina desarrollada por: Jaime Ruiz</p>
+                <a href="#">Crunchyroll</a>
+                <a href="#">Twitter</a>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
