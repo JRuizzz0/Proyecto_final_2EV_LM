@@ -1,0 +1,41 @@
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="data.xsd">
+        
+ <elemento>
+    <titulo>Horimiya</titulo>
+    <descripcion>La historia gira en torno a Kyoko Hori y Izumi Miyamura, dos estudiantes que descubren los lados ocultos del otro: Hori, popular y responsable en la escuela, es una madre sustituta en casa; mientras que Miyamura, tímido y reservado en clase, es un chico con piercings y tatuajes fuera del instituto.</descripcion>
+    <imagen>img/horimiya.jpg</imagen>
+ </elemento>
+ 
+
+  <elemento>
+    <titulo>My Dress-Up Darling</titulo>
+    <descripcion>La historia sigue a Wakana Gojō, un estudiante tímido y solitario apasionado por la elaboración de muñecas hina tradicionales, y a Marin Kitagawa, una compañera de clase extrovertida, popular y fanática del anime y el cosplay.</descripcion>
+    <imagen>img/mydressupdarling.jpg</imagen>
+  </elemento>
+
+  <elemento>
+    <titulo>Alya Sometimes Hides Her Feelings in Russian</titulo>
+    <descripcion>Alisa Mikhailovna Kujou, una hermosa estudiante de cabello platinado, asiste a la prestigiosa Academia Seirei. Su presencia llama la atención de todos, especialmente por su actitud fría y distante. A su lado se sienta Masachika Kuze, un estudiante apático que solo parece interesado en dormir en clase, lo que irrita profundamente a Alisa.</descripcion>
+    <imagen>img/alya.jpg</imagen>
+  </elemento>
+
+  <elemento>
+    <titulo>Your Lie in April</titulo>
+    <descripcion>Your Lie in April es una historia conmovedora que sigue a Kōsei Arima, un prodigio del piano conocido como el "Metronomo Humano" por su precisión técnica, impuesta por la estricta educación de su madre.  Tras su fallecimiento, Kōsei sufre un trauma que le impide escuchar el sonido de su propio piano, sumiéndolo en una vida monótona y sin color.</descripcion>
+    <imagen>img/yourlieinapril.jpg</imagen>
+  </elemento>
+
+  <elemento>
+    <titulo>La nobleza de las flores</titulo>
+    <descripcion>La historia gira en torno a Rintarō Tsumugi, un estudiante del instituto masculino Chidori —conocido por albergar a chicos problemáticos—, y Kaoruko Waguri, alumna del prestigioso instituto femenino Kikyo, que representa la élite social.  A pesar de sus mundos opuestos, ambos se conocen en la pastelería familiar de Rintarō y desarrollan una dulce relación que desafía prejuicios y barreras sociales.</descripcion>
+    <imagen>img/kaoru.jpg</imagen>
+  </elemento>
+
+  <elemento>
+    <titulo>Your Name</titulo>
+    <descripcion>La historia sigue a dos adolescentes: Taki Tachibana, un estudiante de secundaria que vive en Tokio, y Mitsuha Miyamizu, una chica que reside en un pequeño pueblo rural llamado Itomori.  Aunque no se conocen, comienzan a experimentar un fenómeno extraño: intercambian sus cuerpos durante el sueño. Al principio, esto causa confusión y torpeza en sus vidas diarias, pero poco a poco empiezan a comunicarse a través de notas, mensajes y marcas, aprendiendo a vivir la vida del otro.</descripcion>
+    <imagen>img/yourname.jpg</imagen>
+  </elemento>
+
+</galeria>
