@@ -1,3 +1,4 @@
+// Creo las variables
 const contTarjetas = document.getElementById("tarjetas");
 const inputBusqueda = document.getElementById("CampoBusqueda");
 const btnBusqueda = document.getElementById("btnBusqueda");
@@ -14,6 +15,7 @@ const modalTarjeta = document.getElementById("modalTarjeta");
 const cerrarTarjeta = document.getElementById("btnCerrarTarjeta");
 const guardarTarjeta = document.getElementById("btnGuardarTarjeta");
 
+// Leo el archivo XML y saco los datos para crear las tarjetas iniciales
 fetch("data/data.xml")
   .then((response) => response.text())
   .then((data) => {
@@ -21,11 +23,13 @@ fetch("data/data.xml")
     const xml = parser.parseFromString(data, "text/xml");
     const elementos = xml.getElementsByTagName("elemento");
 
+    // Hago un bucle para sacar el título, descripción e imagen de cada anime
     for (let elemento of elementos) {
       const titulo = elemento.getElementsByTagName("titulo")[0].textContent;
       const descripcion = elemento.getElementsByTagName("descripcion")[0].textContent;
       const imagen = elemento.getElementsByTagName("imagen")[0].textContent;
       
+      // Añado la tarjeta al contenedor del HTML
       contTarjetas.innerHTML += `
         <div class="tarjeta">
           <img src="${imagen}" alt="${titulo}" class="imagen-anime">
@@ -36,6 +40,7 @@ fetch("data/data.xml")
     }
   });
 
+// Buscador: comprueba lo que he escrito y filtra las tarjetas
 btnBusqueda.addEventListener("click", () => {
     const textoBuscado = inputBusqueda.value.toLowerCase();
     const tarjetasCargadas = document.querySelectorAll(".tarjeta");
@@ -43,6 +48,7 @@ btnBusqueda.addEventListener("click", () => {
     tarjetasCargadas.forEach(tarjeta => {
         const tituloTarjeta = tarjeta.querySelector(".titulo").textContent.toLowerCase();
 
+        // Si el título tiene el texto que se busca, se muestra, si no se oculta
         if (tituloTarjeta.includes(textoBuscado)) {
             tarjeta.style.display = "flex";
         } else {
@@ -51,6 +57,7 @@ btnBusqueda.addEventListener("click", () => {
     });
 });
 
+// Selector para cambiar entre modo claro, oscuro o abrir el modal de colores
 selectorTema.addEventListener("change", (opc) => {
     const opcionElegida = opc.target.value;
     
@@ -65,11 +72,13 @@ selectorTema.addEventListener("change", (opc) => {
     }
 });
 
+// Cierro el menú de temas y vuelvo a dejar el selector como estaba
 btnCerrarTema.addEventListener("click", () => {
     modalTema.style.display = "none";
     selectorTema.selectedIndex = 0;
 });
 
+// Aplico los colores que elijo en el modal a cada parte de la página
 btnGuardarTema.addEventListener("click", () => {
     const colorH = document.getElementById("colorHeader").value;
     const colorM = document.getElementById("colorMain").value;
@@ -83,23 +92,27 @@ btnGuardarTema.addEventListener("click", () => {
     modalTema.style.display = "none";
 });
 
+// Función para quitar los colores personalizados si vuelvo al modo claro/oscuro
 function limpiarColoresCustom() {
     header.style.backgroundColor = "";
     main.style.backgroundColor = "";
     footer.style.backgroundColor = "";
 }
 
+// Abro la ventana para añadir un anime/tarjeta nuevo
 btnTarjeta.addEventListener("click", () => {
     modalTarjeta.style.display = "flex";
 });
 
+// Cierro la ventana de añadir y vacío los campos por si había escrito algo
 cerrarTarjeta.addEventListener("click", () =>{
     modalTarjeta.style.display = "none";
-     document.getElementById("nombreTarjeta").value = "";    
-     document.getElementById("descTarjeta").value = "";
-     inputImagen.value = "";
+    document.getElementById("nombreTarjeta").value = "";    
+    document.getElementById("descTarjeta").value = "";
+    document.getElementById("fileTarjeta").value = ""; 
 });
 
+// Guardo la nueva tarjeta viendo si están todos los campos llenos
 guardarTarjeta.addEventListener("click", () => {
     let tituloTarjeta = document.getElementById("nombreTarjeta").value;
     let descripcionTarjeta = document.getElementById("descTarjeta").value;
@@ -108,7 +121,7 @@ guardarTarjeta.addEventListener("click", () => {
     if (tituloTarjeta !== "" && descripcionTarjeta !== "" && inputImagen.files.length > 0){
         
         let archivo = inputImagen.files[0];
-        let reader = new FileReader();
+        let reader = new FileReader(); // leer la foto del ordenador
         
         reader.onload = function(element){
             let imagenSrc = element.target.result;
@@ -119,8 +132,10 @@ guardarTarjeta.addEventListener("click", () => {
                 <p class="descripcion">${descripcionTarjeta}</p>
             </div>`;
 
+            // Añado la tarjeta nueva junto a las demás
             document.getElementById("tarjetas").innerHTML += nuevaTarjeta;
             
+            // Limpio el modal y lo cierro
             document.getElementById("nombreTarjeta").value = "";
             document.getElementById("descTarjeta").value = "";
             inputImagen.value = "";
@@ -128,6 +143,6 @@ guardarTarjeta.addEventListener("click", () => {
             modalTarjeta.style.display = "none";
         };
         
-        reader.readAsDataURL(archivo);
+        reader.readAsDataURL(archivo); //procesa el archivo q se sube
     }
 });

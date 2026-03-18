@@ -13,7 +13,7 @@ body{
     
 }
 
-
+/*Animacion aparecer */
 @keyframes fadeIn{
     from{
         opacity: 0;
@@ -29,7 +29,7 @@ body{
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
-
+/*Animacion sacudir */
  @keyframes shake { 
     0%, 100% 
     { transform: translateX(0); } 
@@ -43,6 +43,7 @@ body{
     animation: shake 2s ease-in-out infinite;
 }
 
+/*Estilos para el boton para ir al directorio(main) */
 #botonMain{
     background-color: rgb(190, 109, 42);
     font-family:'Times New Roman', Times, serif;
@@ -55,6 +56,7 @@ body{
     border-inline-end-color: bisque;
 }
 
+/*Estilos para cuando se pasa por el cursor por el boton */
 #botonMain:hover{
     background-color: rosybrown;
     transform: scale(1.1);
