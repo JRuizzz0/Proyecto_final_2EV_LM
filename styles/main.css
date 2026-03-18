@@ -98,7 +98,7 @@ main {
   flex-grow: 1;
 }
 
-input, select, button {
+ select {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid rgb(204, 204, 204);
@@ -106,7 +106,19 @@ input, select, button {
   font-size: 20px;
 }
 
+#CampoBusqueda {
+padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgb(204, 204, 204);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+
 button {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 6px;
   background-color: rgb(233, 69, 96);
   color: white;
   border: none;
@@ -132,7 +144,7 @@ button:hover {
     align-items: center;
 }
 
-.modal-content {
+.modal_content {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -163,6 +175,17 @@ button:hover {
 .modo-oscuro .tarjeta {
     background-color: rgb(51, 51, 51);
     box-shadow: 2px 4px 10px rgba(255,255,255,0.1);
+}
+
+#nombreTarjeta,
+#descTarjeta,
+#fileTarjeta {
+  border-radius: 6px;
+  border: 1px solid rgb(204, 204, 204);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+
+  
 }
 
 @media screen and (max-width: 1200px){

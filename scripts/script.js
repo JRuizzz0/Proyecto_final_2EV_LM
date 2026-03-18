@@ -9,7 +9,10 @@ const header = document.querySelector(".header");
 const main = document.querySelector("main");
 const footer = document.querySelector(".footer");
 const body = document.body;
-
+const btnTarjeta = document.getElementById("addTarjeta");
+const modalTarjeta = document.getElementById("modalTarjeta");
+const cerrarTarjeta = document.getElementById("btnCerrarTarjeta");
+const guardarTarjeta = document.getElementById("btnGuardarTarjeta");
 
 fetch("data/data.xml")
   .then((response) => response.text())
@@ -23,7 +26,6 @@ fetch("data/data.xml")
       const descripcion = elemento.getElementsByTagName("descripcion")[0].textContent;
       const imagen = elemento.getElementsByTagName("imagen")[0].textContent;
       
-      
       contTarjetas.innerHTML += `
         <div class="tarjeta">
           <img src="${imagen}" alt="${titulo}" class="imagen-anime">
@@ -33,9 +35,6 @@ fetch("data/data.xml")
       `;
     }
   });
-
-
-  
 
 btnBusqueda.addEventListener("click", () => {
     const textoBuscado = inputBusqueda.value.toLowerCase();
@@ -52,7 +51,6 @@ btnBusqueda.addEventListener("click", () => {
     });
 });
 
-
 selectorTema.addEventListener("change", (opc) => {
     const opcionElegida = opc.target.value;
     
@@ -60,7 +58,7 @@ selectorTema.addEventListener("change", (opc) => {
         body.className = "modo-oscuro";
         limpiarColoresCustom();
     } else if (opcionElegida === "claro") {
-        body.className = "";
+        body.className = ""; 
         limpiarColoresCustom();
     } else if (opcionElegida === "custom") {
         modalTema.style.display = "flex";
@@ -90,3 +88,46 @@ function limpiarColoresCustom() {
     main.style.backgroundColor = "";
     footer.style.backgroundColor = "";
 }
+
+btnTarjeta.addEventListener("click", () => {
+    modalTarjeta.style.display = "flex";
+});
+
+cerrarTarjeta.addEventListener("click", () =>{
+    modalTarjeta.style.display = "none";
+     document.getElementById("nombreTarjeta").value = "";    
+     document.getElementById("descTarjeta").value = "";
+     inputImagen.value = "";
+});
+
+guardarTarjeta.addEventListener("click", () => {
+    let tituloTarjeta = document.getElementById("nombreTarjeta").value;
+    let descripcionTarjeta = document.getElementById("descTarjeta").value;
+    let inputImagen = document.getElementById("fileTarjeta");
+
+    if (tituloTarjeta !== "" && descripcionTarjeta !== "" && inputImagen.files.length > 0){
+        
+        let archivo = inputImagen.files[0];
+        let reader = new FileReader();
+        
+        reader.onload = function(element){
+            let imagenSrc = element.target.result;
+            let nuevaTarjeta = `
+            <div class="tarjeta"> 
+                <img src="${imagenSrc}" class="imagen-anime">
+                <h2 class="titulo">${tituloTarjeta}</h2>
+                <p class="descripcion">${descripcionTarjeta}</p>
+            </div>`;
+
+            document.getElementById("tarjetas").innerHTML += nuevaTarjeta;
+            
+            document.getElementById("nombreTarjeta").value = "";
+            document.getElementById("descTarjeta").value = "";
+            inputImagen.value = "";
+            
+            modalTarjeta.style.display = "none";
+        };
+        
+        reader.readAsDataURL(archivo);
+    }
+});
